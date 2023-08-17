@@ -16,10 +16,12 @@ const width = 10
 function createBoard(color) {
     const gameBoardContainer = document.createElement('div')
     gameBoardContainer.classList.add('game-board')
-    gameBoardContainer.style.backgroundColor = 'purple'
+    gameBoardContainer.style.backgroundColor = color
 
-    gameBoardContainer.append(gameBoardContainer)
+    gamesBoardContainer.appendChild(gameBoardContainer)
 }
-createBoard('yellow')
+
+// Create and append boards
+createBoard('yellow');
 createBoard('purple')
 flipButton.addEventListener('click', flip)
