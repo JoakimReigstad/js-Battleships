@@ -13,13 +13,13 @@ optionShips.forEach(optionShip => optionShip.style.transform = `rotate(${angle}d
 // Creating boards
 const width = 10
 
-function createBoard () {
-const gameBoardContainer = document.createElement('div')
-gameBoardContainer.classList.add('game-board')
-gameBoardContainer.style.backgroundColor = 'purple'
+function createBoard(color) {
+    const gameBoardContainer = document.createElement('div')
+    gameBoardContainer.classList.add('game-board')
+    gameBoardContainer.style.backgroundColor = 'purple'
 
-gamesBoardContainer.append(gameBoardContainer)
+    gameBoardContainer.append(gameBoardContainer)
 }
-createBoard()
-
+createBoard('yellow')
+createBoard('purple')
 flipButton.addEventListener('click', flip)
