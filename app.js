@@ -33,3 +33,35 @@ function createBoard(color, user) {
 createBoard('yellow', 'player');
 createBoard('purple', 'computer');
 flipButton.addEventListener('click', flip)
+
+// Creating ships
+
+class Ship {
+    constructor(name, length) {
+        this.name = name
+        this.length = length
+    }
+}
+
+const destroyer = new Ship('destroyer', 2)
+const submarine = new Ship('submarine', 3)
+const cruiser = new Ship('cruiser', 3)
+const battleship = new Ship('battleship', 4)
+const carrier = new Ship('carrier', 5)
+
+const ships = [destroyer, submarine, cruiser, battleship, carrier]
+
+function addShipPiece(ship) {
+    const allBoardBlocks = document.querySelectorAll('#computer div')
+    let randomBoolean = Math.random() < 0.5
+    let isHorizontal = true
+    let randomStartIndex = Math.floor(Math.random() * width * width)
+    console.log(randomStartIndex)
+
+    for(let i = 0; i < ship.length; i++){
+        if (isHorizontal) {
+            console.log (allBoardBlocks[Number(randomStartIndex) + i])
+            } 
+    }
+}
+addShipPiece(destroyer)
