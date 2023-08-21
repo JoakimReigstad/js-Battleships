@@ -56,10 +56,11 @@ function addShipPiece(ship) {
     let randomBoolean = Math.random() < 0.5;
     let isHorizontal = randomBoolean
     let randomStartIndex = Math.floor(Math.random() * width * width);
-    let validStart = isHorizontal ? randomStartIndex <= width * width - ship.length ? randomStartIndex : 
-    width * width - ship.length :
+    let validStart = isHorizontal ? (randomStartIndex <= width * width - ship.length ? randomStartIndex : width * width - ship.length) :
+    (randomStartIndex <= width * width - width * ship.length ? randomStartIndex : randomStartIndex - ship.length * width + width);
     // handle vertical
-    randomStartIndex <= width * width - ship.length
+    randomStartIndex <= width * width - width * ship.length ? randomStartIndex:
+    randomStartIndex - ship.length * width + width;
     
 
     let shipBlocks = [];
@@ -71,12 +72,40 @@ function addShipPiece(ship) {
             shipBlocks.push(allBoardBlocks[Number(randomStartIndex) + i * width]);
         }
     }
+    
+    let valid
 
-    shipBlocks.forEach(shipBlock => {
-         shipBlock.classList.add(ship.name)
-         shipBlock.classList.add('taken')
-})
+    if (isHorizontal) {
+    shipBlocks.forEach((_shipBlock, index) =>
+     valid = shipBlocks[0].id % width !== width - (shipBlocks.length - (index + 1)))
+    
+     } else {
+        shipBlocks.every((_shipBlock, index) =>
+             valid = shipBlocks[0].id < 90 + (width + index + 1)
+        )
 
+     }
+
+     const notTaken = shipBlocks.every(shipBlock => !shipBlock.classList.contains('taken'))
+
+     if (valid && notTaken) {
+        shipBlocks.forEach(shipBlock => {
+            if (!shipBlock.classList.contains('taken')) {
+                shipBlock.classList.add(ship.name);
+                shipBlock.classList.add('taken');
+            }
+        });
+    } else {
+        addShipPiece(ship);
+    }
 }
 
-ships.forEach(ship => addShipPiece(ship))
+ships.forEach(ship => addShipPiece(ship));
+
+// Drag and drop playter ships
+const optionShips = Array.from(optionContainer.children)
+optionShips.forEach(optionShip => optionShip.addEventListener('dragstart', dragStart))
+
+function dragStart(e){
+    console.log(e.target)
+}
