@@ -95,7 +95,7 @@ function addShipPiece(user, ship, startId) {
 
     let startIndex = startId ? startId : randomStartIndex
 
-    const { shipBlock, valid, notTaken} = getValidity(allBoardBlocks, isHorizontal, startIndex, ship)
+    const { shipBlocks, valid, notTaken} = getValidity(allBoardBlocks, isHorizontal, startIndex, ship)
     
 
      if (valid && notTaken) {
