@@ -1,6 +1,6 @@
 # Battleship Game with JavaScript
 
-![Battleship Banner](battleship_banner.png)
+![Battleship Banner](battleship.png)
 
 Welcome to the Battleship Game project! This is a simple implementation of the classic game Battleship using primarily JavaScript. In this project, we'll be creating a two-player version of Battleship that you can play right in your browser.
 
