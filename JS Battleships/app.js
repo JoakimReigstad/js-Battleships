@@ -162,12 +162,10 @@ function highlightArea(startIndex, ship) {
 }
 
 let gameOver = false
-let playerTurn
+
 
 // Start game
 
 function startGame(){
-
+ alert("test");
 }
-
-startButton.addEventListener('click', startGame)
